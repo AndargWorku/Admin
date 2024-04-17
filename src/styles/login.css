@@ -1,0 +1,17 @@
+.login {
+    background: #37305A;
+    color: #fff;
+}
+
+.login:hover {
+    background: rgb(60, 60, 60);
+    color: #fff;
+}
+
+.nb {
+    color: #37305A;
+}
+
+.nb:hover {
+    color: gray
+}

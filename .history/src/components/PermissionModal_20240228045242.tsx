@@ -1,0 +1,70 @@
+// PermissionModal.tsx
+
+import React, { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { createPermission, updatePermission } from '../redux/actions/permissionsActions';
+
+interface PermissionModalProps {
+  onClose: () => void;
+  permission: { id: string; name: string; description: string } | null;
+}
+
+const PermissionModal: React.FC<PermissionModalProps> = ({ onClose, permission }) => {
+  const dispatch = useDispatch();
+  const [name, setName] = useState('');
+  const [description, setDescription] = useState('');
+
+  useEffect(() => {
+    if (permission) {
+      setName(permission.name);
+      setDescription(permission.description);
+    } else {
+      setName('');
+      setDescription('');
+    }
+  }, [permission]);
+
+  const handleSave = () => {
+    if (permission) {
+      dispatch(updatePermission({ id: permission.id, data: { name, description } }));
+    } else {
+      dispatch(createPermission({ name, description }));
+    }
+    onClose();
+  };
+
+  return (
+    <div className="fixed top-0 left-0 w-full h-full bg-gray-800 bg-opacity-75 flex items-center justify-center">
+      <div className="bg-white p-6 rounded-md w-96">
+      <h2>{permission ? 'Edit Permission' : 'Create Permission'}</h2>
+      <div className='mb-4'>
+      <label className="block text-sm font-semibold mb-2">
+        Name:
+        </label>
+        <input type="text" value={name} onChange={(e) => setName(e.target.value)}
+         className="w-full p-2 border border-gray-300 rounded-md"
+          />
+      
+      </div>
+      <div className='mb-4'>
+      <label className="block text-sm font-semibold mb-2">
+        Description:
+        </label>
+        <input type="text" value={description} onChange={(e) => setDescription(e.target.value)} 
+        className="w-full p-2 border border-gray-300 rounded-md"
+        />
+        </div>
+      <div className=' justify-end'>
+      <button onClick={handleSave}
+       className="bg-indigo-950 text-white px-4 py-2 rounded-md mr-2 hover:bg-gray-800"
+      >Save</button>
+      <button onClick={onClose}
+      className="bg-pink-500 text-white px-4 py-2 rounded-md hover:bg-pink-700"
+      >Cancel</button>
+      </div>
+      </div>
+    </div>
+  );
+};
+
+export default PermissionModal;

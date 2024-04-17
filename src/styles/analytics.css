@@ -1,0 +1,26 @@
+.card1 {
+    background: #37305F;
+    color: #fff;
+}
+
+.card2 {
+    background: #F26A8D;
+    color: black;
+}
+
+
+/* .chart {
+    box-shadow: 0.5px 0.5px 0.5px gray;
+} */
+
+.customer {
+    max-width: 350px;
+}
+
+.orders {
+    max-width: 350;
+}
+
+.product {
+    max-width: 350px;
+}

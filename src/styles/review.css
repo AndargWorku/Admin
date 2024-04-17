@@ -1,0 +1,9 @@
+.add__review {
+    background-color: #37305A;
+    color: #fff;
+}
+
+.add__review :hover {
+    background-color: gray;
+    color: #fff;
+}

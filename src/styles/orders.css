@@ -1,0 +1,41 @@
+.main {
+    box-shadow: 5px 5px 5px rgb(128, 128, 128);
+}
+
+.add {
+    background: #37305A;
+    color: #fff;
+}
+
+.add :hover {
+    background: gray;
+    color: #fff;
+}
+
+.edit {
+    color: #37305A;
+    text-decoration: none;
+}
+
+.edit:hover {
+    color: gray;
+}
+
+.delete {
+    color: #F26A8D;
+    text-decoration: none;
+}
+
+.delete :hover {
+    color: rgb(240, 48, 48);
+}
+
+.remove {
+    background: #F26A8D;
+    color: #fff
+}
+
+.remove:hover {
+    background: rgb(248, 67, 67);
+    color: #fff;
+}
